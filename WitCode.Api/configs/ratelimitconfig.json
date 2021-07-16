@@ -1,0 +1,24 @@
+{
+  "IpRateLimiting": {
+    //当为True的时候 例如设置了5次每分钟访问限流，当你getData()5次过后禁止访问，但是还可以访问postData()5次，
+    //总得来说是每个接口都有5次在这一分钟，互不干扰。"当为False的时候" "每个接口都加入计数，不管你访问哪个接口","只要在一分钟内累计够5次" "将禁止访问",
+    "EnableEndpointRateLimiting": true,
+    "StackBlockedRequests": false,
+    "RealIpHeader": "X-Real-IP",
+    "ClientIdHeader": "X-ClientId",
+    "IpWhitelist": null,
+    "EndpointWhitelist": null,
+    "HttpStatusCode": 429,
+    "QuotaExceededResponse": {
+      "Content": "{{ \"message\": \"Too many requests,Please try again in {2} second(s).\", \"code\": 429,\"data \":\"\"}}",
+      "ContentType": "application/json"
+    },
+    "GeneralRules": [
+      {
+        "Endpoint": "*",
+        "Period": "1s",
+        "Limit": 1
+      }
+    ]
+  }
+}
