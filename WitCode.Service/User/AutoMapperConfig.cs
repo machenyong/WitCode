@@ -14,7 +14,7 @@ namespace WitCode.Service
         {
             CreateMap<UserEntity,UserModel>();
 
-            //写数据操作哇哦
+            //写数据操作哇哦哦
             ////新增
             //CreateMap<UserAddInput, UserEntity>();
             //CreateMap<UserUpdateInput, UserEntity>();
